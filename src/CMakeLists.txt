@@ -383,9 +383,9 @@ list(APPEND SOURCE_FILES
         displayapp/screens/SystemInfo.cpp
         displayapp/screens/Label.cpp
         displayapp/screens/FirmwareUpdate.cpp
-        displayapp/screens/Music.cpp
+        # displayapp/screens/Music.cpp
         displayapp/screens/Weather.cpp
-        displayapp/screens/Navigation.cpp
+        # displayapp/screens/Navigation.cpp
         displayapp/screens/Metronome.cpp
         displayapp/screens/Motion.cpp
         displayapp/screens/FirmwareValidation.cpp
@@ -429,7 +429,11 @@ list(APPEND SOURCE_FILES
         displayapp/screens/WatchFaceTerminal.cpp
         displayapp/screens/WatchFacePineTimeStyle.cpp
 
-        ##
+        ## Custom
+        displayapp/icons/Spiderman_240x240.c
+        displayapp/screens/resources/block_piece.cpp
+        displayapp/screens/resources/board.cpp
+        displayapp/screens/MyApp.cpp
 
         main.cpp
         drivers/St7789.cpp
@@ -456,7 +460,6 @@ list(APPEND SOURCE_FILES
         components/ble/DfuService.cpp
         components/ble/CurrentTimeService.cpp
         components/ble/AlertNotificationService.cpp
-        components/ble/MusicService.cpp
         components/ble/weather/WeatherService.cpp
         components/ble/NavigationService.cpp
         components/ble/BatteryInformationService.cpp
@@ -469,7 +472,8 @@ list(APPEND SOURCE_FILES
         components/motor/MotorController.cpp
         components/settings/Settings.cpp
         components/timer/TimerController.cpp
-        components/alarm/AlarmController.cpp
+        components/alarm/AlarmController.cpp        
+
         components/fs/FS.cpp
         drivers/Cst816s.cpp
         FreeRTOS/port.c
@@ -523,7 +527,6 @@ list(APPEND RECOVERY_SOURCE_FILES
         components/ble/DfuService.cpp
         components/ble/CurrentTimeService.cpp
         components/ble/AlertNotificationService.cpp
-        components/ble/MusicService.cpp
         components/ble/weather/WeatherService.cpp
         components/ble/BatteryInformationService.cpp
         components/ble/FSService.cpp
@@ -609,6 +612,7 @@ set(INCLUDE_FILES
         displayapp/screens/Motion.h
         displayapp/screens/Timer.h
         displayapp/screens/Alarm.h
+        # displayapp/screens/MyApp.h
         displayapp/Colors.h
         displayapp/widgets/Counter.h
         displayapp/widgets/PageIndicator.h
@@ -651,6 +655,8 @@ set(INCLUDE_FILES
         components/settings/Settings.h
         components/timer/TimerController.h
         components/alarm/AlarmController.h
+        displayapp/screens/resources/block_piece.h
+        displayapp/screens/resources/board.h
         drivers/Cst816s.h
         FreeRTOS/portmacro.h
         FreeRTOS/portmacro_cmsis.h

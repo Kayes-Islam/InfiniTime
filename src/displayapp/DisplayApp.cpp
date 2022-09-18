@@ -18,8 +18,8 @@
 #include "displayapp/screens/Paddle.h"
 #include "displayapp/screens/StopWatch.h"
 #include "displayapp/screens/Metronome.h"
-#include "displayapp/screens/Music.h"
-#include "displayapp/screens/Navigation.h"
+// #include "displayapp/screens/Music.h"
+// #include "displayapp/screens/Navigation.h"
 #include "displayapp/screens/Notifications.h"
 #include "displayapp/screens/SystemInfo.h"
 #include "displayapp/screens/Tile.h"
@@ -29,6 +29,7 @@
 #include "displayapp/screens/Steps.h"
 #include "displayapp/screens/PassKey.h"
 #include "displayapp/screens/Error.h"
+
 
 #include "drivers/Cst816s.h"
 #include "drivers/St7789.h"
@@ -48,6 +49,8 @@
 #include "displayapp/screens/settings/SettingChimes.h"
 #include "displayapp/screens/settings/SettingShakeThreshold.h"
 #include "displayapp/screens/settings/SettingBluetooth.h"
+
+#include "displayapp/screens/MyApp.h"
 
 #include "libs/lv_conf.h"
 
@@ -457,12 +460,12 @@ void DisplayApp::LoadApp(Apps app, DisplayApp::FullRefreshDirections direction) 
     case Apps::Paddle:
       currentScreen = std::make_unique<Screens::Paddle>(this, lvgl);
       break;
-    case Apps::Music:
-      currentScreen = std::make_unique<Screens::Music>(this, systemTask->nimble().music());
-      break;
-    case Apps::Navigation:
-      currentScreen = std::make_unique<Screens::Navigation>(this, systemTask->nimble().navigation());
-      break;
+    // case Apps::Music:
+    //   currentScreen = std::make_unique<Screens::Music>(this, systemTask->nimble().music());
+    //   break;
+    // case Apps::Navigation:
+    //   currentScreen = std::make_unique<Screens::Navigation>(this, systemTask->nimble().navigation());
+    //   break;
     case Apps::HeartRate:
       currentScreen = std::make_unique<Screens::HeartRate>(this, heartRateController, *systemTask);
       break;
@@ -475,6 +478,9 @@ void DisplayApp::LoadApp(Apps app, DisplayApp::FullRefreshDirections direction) 
       break;
     case Apps::Steps:
       currentScreen = std::make_unique<Screens::Steps>(this, motionController, settingsController);
+      break;
+    case Apps::MyApp:
+      currentScreen = std::make_unique<Screens::MyApp>(this);
       break;
   }
   currentApp = app;
